@@ -8,7 +8,7 @@ elasticsearch:
   volumes:
     - elasticsearch1:/usr/share/elasticsearch/data
   environment:
-    - constraint:node = ip-X-X-X-X
+    - constraint:node==ip-X-X-X-X
 logstash:
   image: logstash:latest
   command: logstash -f /etc/logstash/conf.d/logstash.conf
