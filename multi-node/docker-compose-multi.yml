@@ -1,0 +1,24 @@
+elasticsearch:
+  image: elasticsearch:latest
+  command: elasticsearch -Des.network.host=0.0.0.0
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volume_driver: flocker
+  volumes:
+    - elasticsearch1:/usr/share/elasticsearch/data
+  environment:
+    - constraint:node = ip-X-X-X-X
+logstash:
+  image: logstash:latest
+  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  volumes:
+    - ./logstash-multi.conf:/etc/logstash/conf.d/logstash.conf
+  ports:
+    - "5000:5000"
+kibana:
+  image: kibana
+  ports:
+    - "5601:5601"
+  environment:
+    - ELASTICSEARCH_URL=http://X.X.X.X:9200
