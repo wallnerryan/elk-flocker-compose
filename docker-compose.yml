@@ -17,10 +17,10 @@ logstash:
   links:
     - elasticsearch
 kibana:
-  build: kibana/
-  volumes:
-    - ./kibana-config.yml:/opt/kibana/config/kibana.yml
+  image: kibana
   ports:
     - "5601:5601"
   links:
     - elasticsearch
+  environment:
+    - ELASTICSEARCH_URL=http://elasticsearch:9200
