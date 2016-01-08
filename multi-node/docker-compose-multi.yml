@@ -11,9 +11,7 @@ elasticsearch:
     - constraint:node==ip-X-X-X-X
 logstash:
   image: logstash:latest
-  command: logstash -f /etc/logstash/conf.d/logstash.conf
-  volumes:
-    - ./logstash-multi.conf:/etc/logstash/conf.d/logstash.conf
+  command: logstash -e 'input { tcp { port => 5000 } } output { elasticsearch { hosts => "X.X.X.X:9200" } }'
   ports:
     - "5000:5000"
 kibana:
