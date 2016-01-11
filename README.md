@@ -27,7 +27,7 @@ $ docker-compose -f docker-compose.yml up -d
 
 #### Multi Node Deployment
 
-From one of your Flocker nodes.
+From a node with access to a Swarm Master for your Flocker cluster..
 
 ```
 $ git clone https://github.com/wallnerryan/elk-flocker-compose
