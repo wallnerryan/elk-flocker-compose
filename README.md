@@ -15,10 +15,23 @@ $ chmod +x /usr/local/bin/docker-compose
 
 ### How to run
 
+#### Single Node Deployment
+
 From one of your Flocker nodes.
 
 ```
 $ git clone https://github.com/wallnerryan/elk-flocker-compose
 $ cd elk-flocker-compose
 $ docker-compose -f docker-compose.yml up -d
+```
+
+#### Multi Node Deployment
+
+From one of your Flocker nodes.
+
+```
+$ git clone https://github.com/wallnerryan/elk-flocker-compose
+$ cd elk-flocker-compose/multi-node
+# Edit IP Addresses marked as X.X.X.X or X-X-X-X
+$ docker-compose -f docker-compose-multi.yml up -d
 ```
